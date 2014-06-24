@@ -52,3 +52,25 @@ If this fails, you may want to export a smaller portion of the repository.
 
 ::
   svn2git http://svn.example.com/path/to/repo --authors ~/authors.txt --branches branches --tags tags --trunk trunk --revision 31457
+
+Verify
+-------
+svn2git should have converted trunk to master, SVN branches to Git branches, and SVN tags to Git tags.
+
+::
+  >git branch
+    1.3.final
+    2.5-bugfix
+    develop-2.0
+  * master
+    ...etc...
+
+  >git tag
+    1.3.final
+    release-1.0
+    release-1.1
+    release-1.1_bugfix-1.0
+    release-1.2
+    release-1.3
+    ...etc...
+
