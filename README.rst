@@ -74,3 +74,6 @@ svn2git should have converted trunk to master, SVN branches to Git branches, and
     release-1.3
     ...etc...
 
+Questions
+----------
+https://github.com/nirvdrum/svn2git#faq
