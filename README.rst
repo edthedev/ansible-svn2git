@@ -3,7 +3,10 @@ Ansible recipe for svn2git
 
 Prerequisites
 --------------
-This script requires Ansible, Vagrant and a virtual machine manager (VirtualBox or VMWare Workstation).
+This script requires:
+* Ansible
+* Vagrant
+* A virtual machine manager such as(VirtualBox or VMWare Workstation.
 
 Bring up the SVN VM.
 ---------------------
