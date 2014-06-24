@@ -48,4 +48,7 @@ You should see a message like this, updating the revision number periodically.
   This may take a while on large repositories
   Checked through r13800
 
+If this fails, you may want to export a smaller portion of the repository.
 
+::
+  git svn fetch -r31457
