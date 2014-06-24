@@ -51,4 +51,4 @@ You should see a message like this, updating the revision number periodically.
 If this fails, you may want to export a smaller portion of the repository.
 
 ::
-  git svn fetch -r31457
+  svn2git http://svn.example.com/path/to/repo --authors ~/authors.txt --branches branches --tags tags --trunk trunk --revision 31457
