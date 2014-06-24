@@ -81,14 +81,29 @@ https://github.com/nirvdrum/svn2git#faq
 Push it somewhere
 ------------------
 
-::
+Create a new bare repository on the remote Git server.::
+
     ssh your-git-server
-    git init --bare AppName
+    git init --bare AppName.git
 
+Back inside your VM, add the new remote bare repository as a remote named origin.::
 
-    git remote add origin https://remote/git/repo.git
+    git remote add origin https://remote/git/AppName.git
+
+If you're using Git 1.7 or earlier, you will likely need to update .git/config to add your username to the remote.
+:: 
+    [remote "origin"] 
+            url = https://username@git-server.git
+
+Push the master to the remote server.::
     git push -u origin master 
+
+Push tags to the remote server.::
     git push --tags
+
+Push branches to the remote server.::
     git push --all
 
+Now you can clone to the development workstation that you actually intend to work from.::
 
+    git clone https://remote/git/AppName.git
