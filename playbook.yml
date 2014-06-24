@@ -3,11 +3,6 @@
   user: vagrant
   gather_facts: False 
   sudo: yes
-  vars:
-    - git_tar: git-1.8.2.3.tar.gz
-    - git_tmp: /home/vagrant/gitsrc
-    - git_build: "{{ git_tmp }}/git-1.8.2.3"
-    - app_reqs: /vagrant/diceroller/deploy/requirements.txt
   tasks:
     - name: Install system packages
       yum: pkg={{ item }} state=installed
@@ -20,20 +15,3 @@
       shell: gem install {{ item }}
       with_items: 
         - svn2git 
-    - name: git prereqs
-      yum: pkg={{ item }} state=installed
-      with_items:
-        - gettext-devel 
-        - expat-devel 
-        - curl-devel 
-        - zlib-devel 
-        - openssl-devel
-        - gcc-c++
-    - name: git source dir 
-      file: dest={{ git_tmp }} state=directory 
-    - name: unpackit
-      unarchive: src={{ git_tar }} dest={{ git_tmp }}
-    - name: build git
-      shell: cd {{ git_build }}; make prefix=/usr/local all
-    - name: install git
-      shell: cd {{ git_build }}; make prefix=/usr/local install
