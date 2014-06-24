@@ -30,4 +30,3 @@ Update authors.txt into the form svn2git expects.
   jcoglan = James Coglan <jcoglan@never-you-mind.com>
   stnick = Santa Claus <nicholas@lapland.com>
 
-
