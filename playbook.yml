@@ -1,0 +1,19 @@
+---
+- hosts: all
+  user: vagrant
+  gather_facts: False 
+  sudo: yes
+  vars:
+    - app_reqs: /vagrant/diceroller/deploy/requirements.txt
+  tasks:
+    - name: Install system packages
+      yum: pkg={{ item }} state=installed
+      with_items:
+        - git-core 
+        - git-svn 
+        - ruby 
+        - rubygems
+    - name: gems 
+      shell: gem install {{ item }}
+      with_items: 
+        - svn2git 
