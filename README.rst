@@ -86,7 +86,7 @@ Push it somewhere
     git init --bare AppName
 
 
-    git remote add origin https://git-sdg.cites.illinois.edu/Scratch/NetIDApps.git
+    git remote add origin https://remote/git/repo.git
     git push -u origin master 
     git push --tags
     git push --all
