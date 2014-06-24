@@ -77,3 +77,18 @@ svn2git should have converted trunk to master, SVN branches to Git branches, and
 Questions
 ----------
 https://github.com/nirvdrum/svn2git#faq
+
+Push it somewhere
+------------------
+
+::
+    ssh your-git-server
+    git init --bare AppName
+
+
+    git remote add origin https://git-sdg.cites.illinois.edu/Scratch/NetIDApps.git
+    git push -u origin master 
+    git push --tags
+    git push --all
+
+

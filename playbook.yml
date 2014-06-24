@@ -4,6 +4,8 @@
   gather_facts: False 
   sudo: yes
   vars:
+    - git_tar: git-1.8.2.3.tar.gz
+    - git_tmp: ~/gitsrc
     - app_reqs: /vagrant/diceroller/deploy/requirements.txt
   tasks:
     - name: Install system packages
@@ -17,3 +19,19 @@
       shell: gem install {{ item }}
       with_items: 
         - svn2git 
+    - name: needed for git 1.8
+      yum: pkg={{ item }} state=installed
+      with_items:
+        - gettext-devel 
+        - expat-devel 
+        - curl-devel 
+        - zlib-devel 
+        - openssl-devel
+    - name: existing directory nice
+      file: dest={{ gitsrc }} state=directory 
+    - name: unpackit
+      unarchive: src={{ git_tar }} dest={{ gitsrc }}
+    - name: build git
+      shell: cd {{ gitsrc }}; make --prefix=/usr/local all
+    - name: install git
+      shell: cd {{ gitsrc }}; make --prefix=/usr/local install
