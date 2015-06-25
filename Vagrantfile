@@ -13,6 +13,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 2
   end
 
+  config.vm.synced_folder "shared", "/tmp/shared"
+
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
 	ansible.verbose = 'vvv'
@@ -20,10 +22,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    ansible.start_at_task = 'git prereqs'
 #	ansible.start_at_task = 'config apache'
   end
-
-
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.11"
-
 end

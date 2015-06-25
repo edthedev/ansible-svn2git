@@ -42,7 +42,7 @@ Update authors.txt into the form svn2git expects.::
 Migrate. Do not include trunk in the repo path. svn2Git will need to see everything, trunk, branches, tags.
 It will take time.::
 
-  svn2git http://svn.example.com/path/to/repo --authors ~/authors.txt --branches branches --tags tags --trunk trunk
+  svn2git http://svn.example.com/path/to/repo --authors ~/authors.txt
 
 You should see a message like this, updating the revision number periodically.::
 
