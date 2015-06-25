@@ -1,3 +1,4 @@
 authors.txt
 *.tar.gz
 .vagrant
+shared
