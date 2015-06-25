@@ -104,3 +104,19 @@ Push branches to the remote server.::
 Now you can clone to the development workstation that you actually intend to work from.::
 
     git clone https://remote/git/AppName.git
+
+If you have a local copy instead of a remote server
+----------------------------------------------------
+Serve the SVN repo on localhost.
+
+  sudo svnserve -d -r <local repo folder>
+
+Proceed as normal, but pointing to localhost.
+
+  svn2git svn://localhost --authors authors.txt
+
+
+Some versions of the git-svn plugin also directly support:
+
+  svn2git file://<local repo path> --authors authors.txt
+
